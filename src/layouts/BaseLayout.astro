@@ -1,0 +1,139 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  currentPage?: string;
+}
+
+const {
+  title,
+  description = 'AI 전문 개발팀이 운영하는 AI 에이전트 도입 서비스. OpenClaw(오픈클로) 설치부터 Claude 업무 도입, 자동화 컨설팅까지.',
+  currentPage = '/'
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="keywords" content="AI 에이전트, AI 자동화, 오픈클로 설치, OpenClaw 설치, Claude 도입, Claude 업무 활용, Claude Desktop 설치, AI 컨설팅, AI 도입, 업무 자동화, AI 비서, AI 챗봇 구축, ChatGPT 업무 도입, Claude API, Claude MCP, 프롬프트 엔지니어링, AI 워크플로우, n8n 자동화, RAG 챗봇, AI 전문가, 소상공인 AI, 소규모 업체 AI 도입">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="AI DevPartner">
+
+  <!-- Naver -->
+  <meta name="naver-site-verification" content="NAVER_VERIFICATION_CODE_HERE">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ai.devpartner.org">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content="https://ai.devpartner.org/og-image.png">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="AI DevPartner">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content="https://ai.devpartner.org/og-image.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "AI DevPartner - AI 전문 컨설팅",
+    "description": "AI 전문 개발팀이 운영하는 AI 에이전트 도입 및 자동화 컨설팅 서비스",
+    "url": "https://ai.devpartner.org",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "용인시",
+      "addressRegion": "경기도",
+      "addressCountry": "KR"
+    },
+    "telephone": "050-6050-6188",
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 09:00-18:00"
+  })} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+</head>
+<body>
+  <Header currentPage={currentPage} />
+
+  <slot />
+
+  <Footer />
+
+  <!-- Channel Talk -->
+  <script is:inline>
+    (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+    // TODO: 채널톡 가입 후 발급받은 pluginKey로 교체하세요
+    ChannelIO('boot', { "pluginKey": "YOUR_CHANNEL_TALK_PLUGIN_KEY" });
+  </script>
+
+  <!-- Global Scripts -->
+  <script is:inline>
+    function openChat() {
+      if (window.ChannelIO) ChannelIO('showMessenger');
+    }
+
+    // Mobile menu
+    document.getElementById('mobileToggle')?.addEventListener('click', function() {
+      var menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    });
+    document.getElementById('mobileClose')?.addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Chat buttons
+    document.querySelectorAll('[data-chat]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        openChat();
+      });
+    });
+
+    // Claude tab links
+    document.querySelectorAll('[data-tab="claude"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        setTimeout(function() {
+          if (typeof switchTab === 'function') switchTab('claude');
+        }, 300);
+      });
+    });
+
+    // Header scroll
+    window.addEventListener('scroll', function() {
+      document.querySelector('header')?.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll animations
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>
