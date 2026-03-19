@@ -19,14 +19,14 @@ const { currentPage = '/' } = Astro.props;
         <a href="#reviews">고객 후기</a>
         <a href="#pricing">요금제</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="nav-cta" data-chat>무료 상담</a>
+        <a href="#contact" class="nav-cta" href="/contact">무료 상담</a>
       </nav>
     ) : (
       <nav>
         <a href="/">홈</a>
         <a href="/#ai-services">AI 서비스</a>
         <a href="/#pricing">요금제</a>
-        <a href="#" class="nav-cta" data-chat>무료 상담</a>
+        <a href="#" class="nav-cta" href="/contact">무료 상담</a>
       </nav>
     )}
     <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기">
@@ -44,7 +44,7 @@ const { currentPage = '/' } = Astro.props;
     <a href="#reviews" class="mobile-link">고객 후기</a>
     <a href="#pricing" class="mobile-link">요금제</a>
     <a href="#faq" class="mobile-link">FAQ</a>
-    <a href="#" class="btn-primary mobile-link" data-chat style="margin-top:16px;">무료 상담</a>
+    <a href="#" class="btn-primary mobile-link" href="/contact" style="margin-top:16px;">무료 상담</a>
   </div>
 ) : (
   <div class="mobile-overlay" id="mobileMenu">
@@ -52,6 +52,6 @@ const { currentPage = '/' } = Astro.props;
     <a href="/" class="mobile-link">홈</a>
     <a href="/#ai-services" class="mobile-link">AI 서비스</a>
     <a href="/#pricing" class="mobile-link">요금제</a>
-    <a href="#" class="btn-primary mobile-link" data-chat style="margin-top:16px;">무료 상담</a>
+    <a href="#" class="btn-primary mobile-link" href="/contact" style="margin-top:16px;">무료 상담</a>
   </div>
 )}
