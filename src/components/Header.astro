@@ -9,45 +9,27 @@ const { currentPage = '/' } = Astro.props;
   <div class="container">
     <a href="/" class="logo">
       <div class="logo-icon">AI</div>
-      <span>딸깍AI</span>
+      <span>AI DevPartner</span>
     </a>
-    {currentPage === '/' ? (
-      <nav>
-        <a href="#cases">사례</a>
-        <a href="#process">진행 과정</a>
-        <a href="#pricing">서비스 요금</a>
-        <a href="#about">소개</a>
-        <a href="/contact" class="nav-cta">무료 진단</a>
-      </nav>
-    ) : (
-      <nav>
-        <a href="/">홈</a>
-        <a href="/#cases">사례</a>
-        <a href="/#pricing">서비스 요금</a>
-        <a href="/contact" class="nav-cta">무료 진단</a>
-      </nav>
-    )}
+    <nav>
+      <a href="/services">서비스</a>
+      <a href="/#cases">사례</a>
+      <a href="/#pricing">요금</a>
+      <a href="/#about">소개</a>
+      <a href="/contact" class="nav-cta">무료 진단</a>
+    </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-{currentPage === '/' ? (
-  <div class="mobile-overlay" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose" aria-label="메뉴 닫기">&times;</button>
-    <a href="#cases" class="mobile-link">사례</a>
-    <a href="#process" class="mobile-link">진행 과정</a>
-    <a href="#pricing" class="mobile-link">서비스 요금</a>
-    <a href="#about" class="mobile-link">소개</a>
-    <a href="/contact" class="btn-primary mobile-link" style="margin-top:16px;">무료 진단</a>
-  </div>
-) : (
-  <div class="mobile-overlay" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose" aria-label="메뉴 닫기">&times;</button>
-    <a href="/" class="mobile-link">홈</a>
-    <a href="/#cases" class="mobile-link">사례</a>
-    <a href="/#pricing" class="mobile-link">서비스 요금</a>
-    <a href="/contact" class="btn-primary mobile-link" style="margin-top:16px;">무료 진단</a>
-  </div>
-)}
+<div class="mobile-overlay" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="메뉴 닫기">&times;</button>
+  <a href="/" class="mobile-link">홈</a>
+  <a href="/services" class="mobile-link">서비스</a>
+  <a href="/#cases" class="mobile-link">사례</a>
+  <a href="/#pricing" class="mobile-link">요금</a>
+  <a href="/#about" class="mobile-link">소개</a>
+  <a href="/contact" class="btn-primary mobile-link" style="margin-top:16px;">무료 진단</a>
+</div>

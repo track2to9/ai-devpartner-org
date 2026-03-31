@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="딸깍AI | AI 업무 자동화 구축" currentPage="/">
+<BaseLayout title="AI DevPartner | AI 업무 자동화 구축" currentPage="/">
 
   <!-- 1. Hero -->
   <section class="hero">
@@ -156,6 +156,58 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- 2.5 서비스 영역 -->
+  <section class="why-section">
+    <div class="container">
+      <div class="section-header center fade-up">
+        <p class="section-label">Services</p>
+        <h2 class="section-title">AI 도입의 모든 것을 지원합니다</h2>
+        <p class="section-desc">설치부터 구축, 교육, 유지보수까지. 사업에 맞는 AI를 만들어드립니다.</p>
+      </div>
+      <div class="service-overview-grid fade-up">
+        <a href="/services/ai-automation" class="service-overview-card">
+          <span class="svc-icon">⚡</span>
+          <h3>AI 업무 자동화 구축</h3>
+          <p>이메일, 데이터, 보고서, 정산 등 반복 업무를 자동화합니다.</p>
+          <span class="svc-link">자세히 보기 →</span>
+        </a>
+        <a href="/services/chatbot" class="service-overview-card">
+          <span class="svc-icon">💬</span>
+          <h3>AI 챗봇 구축</h3>
+          <p>고객 문의 자동 응대, 사내 매뉴얼 검색 챗봇을 구축합니다.</p>
+          <span class="svc-link">자세히 보기 →</span>
+        </a>
+        <a href="/services/n8n" class="service-overview-card">
+          <span class="svc-icon">🔗</span>
+          <h3>n8n 워크플로우 자동화</h3>
+          <p>여러 서비스를 연결하는 자동화 워크플로우를 구축합니다.</p>
+          <span class="svc-link">자세히 보기 →</span>
+        </a>
+        <a href="/services/openclaw" class="service-overview-card">
+          <span class="svc-icon">🦞</span>
+          <h3>OpenClaw 설치 & 활용</h3>
+          <p>오픈소스 AI 에이전트를 Mac Mini, 클라우드 등에 설치합니다.</p>
+          <span class="svc-link">자세히 보기 →</span>
+        </a>
+        <a href="/services/claude" class="service-overview-card">
+          <span class="svc-icon">🤖</span>
+          <h3>Claude Code & MCP 세팅</h3>
+          <p>Claude Desktop, Claude Code, MCP 서버를 세팅합니다.</p>
+          <span class="svc-link">자세히 보기 →</span>
+        </a>
+        <a href="/services/local-llm" class="service-overview-card">
+          <span class="svc-icon">🔒</span>
+          <h3>로컬 LLM (Ollama)</h3>
+          <p>데이터 유출 없이 내 컴퓨터에서 AI를 실행합니다.</p>
+          <span class="svc-link">자세히 보기 →</span>
+        </a>
+      </div>
+      <div style="text-align:center; margin-top:24px;" class="fade-up">
+        <a href="/services" style="color:var(--primary); font-weight:600; font-size:0.95rem;">전체 서비스 보기 →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- 3. 진행 과정 (4주 구조) -->
   <section id="process" class="why-section">
     <div class="container">
@@ -271,7 +323,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="about-grid fade-up">
         <div>
           <p class="section-label">About</p>
-          <h2 class="section-title">딸깍AI 소개</h2>
+          <h2 class="section-title">AI DevPartner 소개</h2>
           <p style="color:var(--text-secondary); line-height:1.8; margin-bottom:20px;">
             IT 업계 20년 경력의 시니어 엔지니어가 직접 운영합니다.<br>
             대기업 SI에 맡기면 수천만원, 혼자 하면 몇 달이 걸리는 일을<br>
@@ -282,7 +334,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </p>
         </div>
         <div class="about-why">
-          <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:20px;">Why 딸깍AI?</h3>
+          <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:20px;">Why AI DevPartner?</h3>
           <ul class="about-list">
             <li><strong>20년 IT 경력</strong> — 기술을 알고, 사업을 이해합니다</li>
             <li><strong>4주 완성</strong> — 1주차에 범위를 확정하고, 4주 안에 작동하는 결과물을 납품합니다</li>
@@ -441,8 +493,59 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--text-secondary);
   }
 
+  /* Service Overview */
+  .service-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .service-overview-card {
+    display: block;
+    padding: 24px 20px;
+    border-radius: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .service-overview-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+  }
+  .svc-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .service-overview-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .service-overview-card p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .svc-link {
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  @media (max-width: 968px) {
+    .service-overview-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (max-width: 768px) {
     .cases-grid {
+      grid-template-columns: 1fr;
+    }
+    .service-overview-grid {
       grid-template-columns: 1fr;
     }
     .about-grid {

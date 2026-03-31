@@ -1,0 +1,299 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="서비스 | AI DevPartner" description="AI 업무 자동화 구축, OpenClaw 설치, Claude Code 세팅, AI 챗봇, n8n 자동화 등 AI 도입의 모든 것을 지원합니다." currentPage="/services">
+
+  <div class="services-page">
+    <div class="container">
+
+      <div class="section-header center fade-up">
+        <p class="section-label">Services</p>
+        <h1 class="section-title">AI 도입, 어디서부터 시작해야 할지<br>모르겠다면 저희에게 맡기세요</h1>
+        <p class="section-desc">
+          설치부터 구축, 교육, 유지보수까지.<br>
+          20년 경력 IT 전문가가 사업에 맞는 AI를 직접 만들어드립니다.
+        </p>
+      </div>
+
+      <!-- 핵심 서비스 -->
+      <div class="service-category fade-up">
+        <h2 class="category-title">핵심 서비스</h2>
+        <p class="category-desc">사업의 반복 업무를 AI로 해결합니다. 4주 안에 실제 작동하는 결과물을 납품합니다.</p>
+        <div class="services-grid">
+          <a href="/services/ai-automation" class="service-link-card">
+            <div class="service-icon-wrap">
+              <span>⚡</span>
+            </div>
+            <h3>AI 업무 자동화 구축</h3>
+            <p>이메일, 데이터 정리, 보고서, 정산 등 반복 업무를 AI로 자동화합니다. 업무 분석부터 구축, 인수인계까지 4주 완성.</p>
+            <div class="service-meta">
+              <span class="service-price">200~400만원</span>
+              <span class="service-duration">4주 구축</span>
+            </div>
+          </a>
+          <a href="/services/chatbot" class="service-link-card">
+            <div class="service-icon-wrap">
+              <span>💬</span>
+            </div>
+            <h3>AI 챗봇 구축</h3>
+            <p>고객 문의 자동 응대, 사내 매뉴얼 검색, FAQ 자동화. 사업에 맞는 맞춤형 AI 챗봇을 구축합니다.</p>
+            <div class="service-meta">
+              <span class="service-price">200~500만원</span>
+              <span class="service-duration">2~4주 구축</span>
+            </div>
+          </a>
+          <a href="/services/n8n" class="service-link-card">
+            <div class="service-icon-wrap">
+              <span>🔗</span>
+            </div>
+            <h3>n8n 워크플로우 자동화</h3>
+            <p>여러 서비스를 연결하는 자동화 워크플로우를 구축합니다. 노코드 기반이라 직접 관리도 가능합니다.</p>
+            <div class="service-meta">
+              <span class="service-price">100~300만원</span>
+              <span class="service-duration">1~3주 구축</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- AI 도구 설치 & 세팅 -->
+      <div class="service-category fade-up">
+        <h2 class="category-title">AI 도구 설치 & 세팅</h2>
+        <p class="category-desc">직접 해보고 싶지만 설치가 어렵다면. 세팅부터 사용법 교육까지 해드립니다.</p>
+        <div class="services-grid">
+          <a href="/services/openclaw" class="service-link-card">
+            <div class="service-icon-wrap">
+              <span>🦞</span>
+            </div>
+            <h3>OpenClaw 설치 & 활용</h3>
+            <p>미국에서 시작된 오픈소스 AI 에이전트. Mac Mini, 클라우드, Docker 등 다양한 환경에 설치하고 업무에 맞게 세팅합니다.</p>
+            <div class="service-meta">
+              <span class="service-price">10~50만원</span>
+              <span class="service-duration">1~3일</span>
+            </div>
+          </a>
+          <a href="/services/claude" class="service-link-card">
+            <div class="service-icon-wrap">
+              <span>🤖</span>
+            </div>
+            <h3>Claude Code & MCP 세팅</h3>
+            <p>Claude Desktop, Claude Code, MCP 서버 구축. 팀 환경 세팅부터 사내 시스템 연동까지.</p>
+            <div class="service-meta">
+              <span class="service-price">10~100만원</span>
+              <span class="service-duration">1일~2주</span>
+            </div>
+          </a>
+          <a href="/services/local-llm" class="service-link-card">
+            <div class="service-icon-wrap">
+              <span>🔒</span>
+            </div>
+            <h3>로컬 LLM 설치 (Ollama)</h3>
+            <p>데이터를 외부에 보내지 않고 내 컴퓨터에서 AI를 실행합니다. 보안이 중요한 업무에 적합합니다.</p>
+            <div class="service-meta">
+              <span class="service-price">10~30만원</span>
+              <span class="service-duration">1일</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 기타 서비스 -->
+      <div class="service-category fade-up">
+        <h2 class="category-title">기타 AI 서비스</h2>
+        <p class="category-desc">기술에 맞는 도구를 선택해드립니다.</p>
+        <div class="services-grid services-grid-compact">
+          <div class="service-mini-card">
+            <h4>Cursor / AI 코딩 도구 세팅</h4>
+            <p>개발팀의 AI 코딩 도구 도입. 컨벤션 설정, 교육 포함.</p>
+          </div>
+          <div class="service-mini-card">
+            <h4>ComfyUI / Stable Diffusion</h4>
+            <p>AI 이미지 생성 환경 구축. 디자이너/크리에이터 대상.</p>
+          </div>
+          <div class="service-mini-card">
+            <h4>RAG 파이프라인 구축</h4>
+            <p>사내 문서 기반 AI 검색 시스템. 기업 지식 관리 자동화.</p>
+          </div>
+          <div class="service-mini-card">
+            <h4>Dify / Flowise 플랫폼</h4>
+            <p>비개발자도 AI 앱을 만들 수 있는 플랫폼 구축.</p>
+          </div>
+          <div class="service-mini-card">
+            <h4>AI 보안 감사</h4>
+            <p>AI 도구 도입 후 보안 점검. 데이터 유출 위험 진단.</p>
+          </div>
+          <div class="service-mini-card">
+            <h4>AI 도입 컨설팅</h4>
+            <p>어디서부터 시작할지 모르겠다면. 업무 분석 + AI 도입 로드맵 설계.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="services-cta fade-up">
+        <h2>어떤 서비스가 필요한지 모르겠다면</h2>
+        <p>30분 무료 진단으로 사업에 맞는 AI 도입 방법을 찾아드립니다.</p>
+        <a href="/contact" class="btn-primary">무료 진단 신청하기</a>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .services-page {
+    padding-top: calc(var(--header-height) + 60px);
+    padding-bottom: 80px;
+  }
+
+  .service-category {
+    margin-top: 64px;
+  }
+
+  .category-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .category-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-link-card {
+    display: block;
+    padding: 28px 24px;
+    border-radius: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .service-link-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+
+  .service-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .service-link-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .service-link-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .service-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .service-price,
+  .service-duration {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .service-price {
+    background: var(--accent-soft);
+    color: var(--primary);
+  }
+
+  .service-duration {
+    background: var(--surface-alt);
+    color: var(--text-secondary);
+  }
+
+  .services-grid-compact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .service-mini-card {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+  }
+
+  .service-mini-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .service-mini-card p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .services-cta {
+    margin-top: 80px;
+    text-align: center;
+    padding: 64px 32px;
+    border-radius: 20px;
+    background: var(--surface-alt);
+  }
+
+  .services-cta h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .services-cta p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 968px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .services-grid-compact {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .services-grid-compact {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

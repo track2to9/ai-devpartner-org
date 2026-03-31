@@ -1,0 +1,472 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="OpenClaw 설치 & 활용 | AI DevPartner" description="오픈소스 AI 에이전트 OpenClaw를 Mac Mini, 클라우드, Docker 등에 설치하고 업무에 맞게 세팅합니다." currentPage="/services/openclaw">
+
+  <div class="detail-page">
+    <div class="container">
+
+      <!-- Hero -->
+      <div class="detail-hero fade-up">
+        <div class="detail-hero-content">
+          <p class="section-label">OpenClaw Installation & Setup</p>
+          <h1 class="section-title">OpenClaw 설치 & 활용</h1>
+          <p class="detail-hero-desc">
+            미국에서 시작되어 전 세계적으로 확산 중인 오픈소스 AI 에이전트.<br>
+            컴퓨터를 대신 조작해 업무를 자동으로 수행합니다.<br>
+            설치가 어렵다면 저희가 해드립니다.
+          </p>
+          <div class="detail-hero-meta">
+            <div class="meta-item"><strong>비용</strong> 10~50만원</div>
+            <div class="meta-item"><strong>소요 시간</strong> 1~3일</div>
+            <div class="meta-item"><strong>지원 환경</strong> macOS, Linux, Docker, Cloud</div>
+          </div>
+          <a href="/contact" class="btn-primary" style="margin-top:24px;">설치 상담 신청</a>
+        </div>
+      </div>
+
+      <!-- OpenClaw란? -->
+      <section class="detail-section fade-up">
+        <h2>OpenClaw란?</h2>
+        <p>
+          OpenClaw는 사용자의 컴퓨터 화면을 직접 보고, 마우스와 키보드를 조작해 작업을 수행하는 <strong>오픈소스 AI 에이전트</strong>입니다.
+          2025년 미국에서 처음 공개된 이후, 전 세계적으로 빠르게 확산되고 있습니다.
+        </p>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h4>🖥️ 컴퓨터 자동 제어</h4>
+            <p>마우스 클릭, 키보드 입력, 앱 실행 등 컴퓨터의 모든 조작을 AI가 대신 수행합니다.</p>
+          </div>
+          <div class="feature-item">
+            <h4>🌐 웹 브라우징 자동화</h4>
+            <p>정보 검색, 데이터 수집, 온라인 작업 등 웹에서의 반복 업무를 자동화합니다.</p>
+          </div>
+          <div class="feature-item">
+            <h4>📄 문서 작성 자동화</h4>
+            <p>보고서 작성, 데이터 정리, 이메일 작성 등 문서 관련 업무를 AI가 처리합니다.</p>
+          </div>
+          <div class="feature-item">
+            <h4>🔄 반복 업무 자동화</h4>
+            <p>매일 반복되는 루틴 작업을 설정해두면 AI가 알아서 처리합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 왜 설치가 어려운가 -->
+      <section class="detail-section fade-up">
+        <h2>왜 직접 설치가 어려운가?</h2>
+        <p>
+          OpenClaw는 강력한 도구이지만, 설치와 설정에 상당한 기술 지식이 필요합니다.
+        </p>
+        <div class="challenge-list">
+          <div class="challenge-item">
+            <div class="challenge-number">1</div>
+            <div>
+              <h4>터미널 / 명령어 인터페이스</h4>
+              <p>설치 과정에서 터미널에 직접 명령어를 입력해야 합니다. Git, Node.js, Python 등 개발 도구가 필요합니다.</p>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-number">2</div>
+            <div>
+              <h4>하드웨어 요구사항</h4>
+              <p>오래된 노트북이나 저사양 기기에서는 원활하게 동작하지 않을 수 있습니다. 최소 M1 이상의 Mac이 권장됩니다.</p>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-number">3</div>
+            <div>
+              <h4>보안 설정</h4>
+              <p>AI가 컴퓨터를 직접 제어하기 때문에 데이터 분리와 접근 권한 설정이 중요합니다. 잘못 설정하면 개인정보 유출 위험이 있습니다.</p>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-number">4</div>
+            <div>
+              <h4>API 키 설정</h4>
+              <p>AI 모델(Claude, GPT 등)의 API 키를 발급받고 연동해야 합니다. 비용 관리도 필요합니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 설치 옵션 -->
+      <section class="detail-section fade-up">
+        <h2>설치 방식 선택</h2>
+        <p>사용 환경과 목적에 맞는 최적의 방식을 추천해드립니다.</p>
+        <div class="option-grid">
+          <div class="option-card">
+            <h4>원격 설치 (고객 기기)</h4>
+            <p>이미 Mac을 보유한 경우. 화면 공유로 원격 설치를 진행합니다.</p>
+            <ul>
+              <li>기기 사양 확인</li>
+              <li>OpenClaw 설치 + 설정</li>
+              <li>보안 설정 (데이터 분리)</li>
+              <li>기본 사용법 교육</li>
+            </ul>
+            <div class="option-price">10만원~</div>
+          </div>
+          <div class="option-card popular">
+            <div class="option-badge">추천</div>
+            <h4>Mac Mini 턴키 배송</h4>
+            <p>기기가 없거나 별도 기기를 원하는 경우. 세팅 완료된 Mac Mini를 배송합니다.</p>
+            <ul>
+              <li>중고/리퍼 Mac Mini 매입</li>
+              <li>OpenClaw 설치 + 최적 세팅</li>
+              <li>보안 설정 완료</li>
+              <li>전원만 꽂으면 바로 사용</li>
+              <li>사용법 교육 (화상)</li>
+            </ul>
+            <div class="option-price">50만원~ (기기 비용 별도)</div>
+          </div>
+          <div class="option-card">
+            <h4>Docker / 클라우드</h4>
+            <p>서버나 클라우드에 설치하고 싶은 경우. 24시간 실행 가능.</p>
+            <ul>
+              <li>Docker 이미지 구성</li>
+              <li>클라우드 VPS 세팅 (Hostinger, Vultr 등)</li>
+              <li>자동 재시작 설정</li>
+              <li>원격 접속 환경 구성</li>
+            </ul>
+            <div class="option-price">20만원~</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 설치 후 할 수 있는 것들 -->
+      <section class="detail-section fade-up">
+        <h2>설치 후 이런 것들을 할 수 있습니다</h2>
+        <div class="usecase-grid">
+          <div class="usecase-item">
+            <h4>📊 데이터 리서치</h4>
+            <p>"오늘 AI 관련 뉴스 검색해서 요약해줘" — AI가 웹을 탐색하고 결과를 정리합니다.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>📧 이메일 관리</h4>
+            <p>"읽지 않은 이메일 중 중요한 것만 분류해줘" — AI가 이메일을 분석하고 정리합니다.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>📝 문서 작성</h4>
+            <p>"이 데이터로 주간 보고서 만들어줘" — AI가 데이터를 분석하고 문서를 작성합니다.</p>
+          </div>
+          <div class="usecase-item">
+            <h4>🛒 반복 작업</h4>
+            <p>"매일 아침 이 사이트에서 가격 데이터를 수집해줘" — 정해진 루틴을 자동으로 반복합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="detail-section fade-up">
+        <h2>자주 묻는 질문</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h4>어떤 기기에 설치할 수 있나요?</h4>
+            <p>Mac Mini, MacBook, iMac 등 macOS 기기에 가장 안정적으로 동작합니다. Linux 서버, Docker, 클라우드 VPS에도 설치 가능합니다. Windows는 WSL2를 통해 제한적으로 지원됩니다.</p>
+          </div>
+          <div class="faq-item">
+            <h4>API 비용이 별도로 발생하나요?</h4>
+            <p>네. OpenClaw가 사용하는 AI 모델(Claude, GPT 등)의 API 비용은 사용량에 따라 월 몇천 원~수만 원 발생합니다. 비용 효율적인 모델 선택도 상담 시 안내드립니다.</p>
+          </div>
+          <div class="faq-item">
+            <h4>보안은 안전한가요?</h4>
+            <p>OpenClaw는 오픈소스로 코드가 공개되어 투명합니다. 다만 컴퓨터를 직접 제어하는 특성상, 일상 사용 기기와 별도 기기에 설치하고 데이터 접근 권한을 분리하는 것을 권장합니다. 저희 서비스에는 이 보안 설정이 포함되어 있습니다.</p>
+          </div>
+          <div class="faq-item">
+            <h4>설치 후 문제가 생기면?</h4>
+            <p>설치 방식에 따라 3일~30일간 무료 A/S를 제공합니다. 이후에도 유상 유지보수가 가능합니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="detail-cta fade-up">
+        <h2>OpenClaw 설치, 저희가 해드립니다</h2>
+        <p>기기 정보와 사용 목적을 알려주시면 최적의 설치 방법을 안내드립니다.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="/contact" class="btn-primary">설치 상담 신청</a>
+          <a href="/services" class="btn-secondary">전체 서비스 보기</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .detail-page {
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 80px;
+  }
+
+  .detail-hero {
+    padding: 40px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .detail-hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-top: 16px;
+    max-width: 640px;
+  }
+
+  .detail-hero-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: var(--surface-alt);
+  }
+
+  .meta-item strong {
+    color: var(--text);
+    margin-right: 6px;
+  }
+
+  .detail-section {
+    margin-bottom: 56px;
+  }
+
+  .detail-section h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .detail-section > p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    max-width: 720px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .feature-item {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--surface-alt);
+  }
+
+  .feature-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .feature-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .challenge-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .challenge-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+
+  .challenge-number {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+  }
+
+  .challenge-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .challenge-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .option-card {
+    padding: 28px 24px;
+    border-radius: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .option-card.popular {
+    border-color: var(--primary);
+  }
+
+  .option-badge {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .option-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .option-card > p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .option-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+
+  .option-card li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .option-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+
+  .option-price {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .usecase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .usecase-item {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--surface-alt);
+  }
+
+  .usecase-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .usecase-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .faq-item {
+    padding: 20px 24px;
+    border-radius: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+
+  .faq-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .faq-item p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .detail-cta {
+    margin-top: 64px;
+    text-align: center;
+    padding: 64px 32px;
+    border-radius: 20px;
+    background: var(--surface-alt);
+  }
+
+  .detail-cta h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .detail-cta p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .feature-grid,
+    .usecase-grid {
+      grid-template-columns: 1fr;
+    }
+    .option-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

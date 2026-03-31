@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="무료 진단 신청 | 딸깍AI" description="AI 업무 자동화 무료 진단을 신청하세요. 30분 상담으로 자동화 가능 영역을 파악합니다." currentPage="/contact">
+<BaseLayout title="무료 진단 신청 | AI DevPartner" description="AI 업무 자동화 무료 진단을 신청하세요. 30분 상담으로 자동화 가능 영역을 파악합니다." currentPage="/contact">
 
   <div class="contact-page">
     <div class="container" style="max-width:720px;">
@@ -19,8 +19,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Form: 4 fields -->
       <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="contact-form fade-up">
         <input type="hidden" name="access_key" value="49321127-3e8c-47dd-a8e1-ecb942599407">
-        <input type="hidden" name="subject" value="[딸깍AI] 무료 진단 신청">
-        <input type="hidden" name="from_name" value="딸깍AI 진단 신청폼">
+        <input type="hidden" name="subject" value="[AI DevPartner] 무료 진단 신청">
+        <input type="hidden" name="from_name" value="AI DevPartner 진단 신청폼">
         <input type="hidden" name="redirect" value="https://ai.devpartner.org/thank-you">
         <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
 

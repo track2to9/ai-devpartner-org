@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="AI 챗봇 구축 | AI DevPartner" description="고객 문의 자동 응대, 사내 매뉴얼 검색, FAQ 자동화. 사업에 맞는 맞춤형 AI 챗봇을 구축합니다." currentPage="/services/chatbot">
+
+  <div class="detail-page">
+    <div class="container">
+
+      <div class="detail-hero fade-up">
+        <p class="section-label">AI Chatbot</p>
+        <h1 class="section-title">AI 챗봇 구축</h1>
+        <p class="detail-hero-desc">
+          반복되는 고객 문의, 사내 매뉴얼 검색, FAQ 응대.<br>
+          AI 챗봇이 24시간 자동으로 처리합니다.<br>
+          복잡한 문의만 담당자에게 전달합니다.
+        </p>
+        <div class="detail-hero-meta">
+          <div class="meta-item"><strong>비용</strong> 200~500만원</div>
+          <div class="meta-item"><strong>구축 기간</strong> 2~4주</div>
+          <div class="meta-item"><strong>유형</strong> 고객 응대 / 사내용</div>
+        </div>
+        <a href="/contact" class="btn-primary" style="margin-top:24px;">챗봇 구축 상담</a>
+      </div>
+
+      <!-- 챗봇 유형 -->
+      <section class="detail-section fade-up">
+        <h2>챗봇 유형</h2>
+        <div class="type-grid">
+          <div class="type-card">
+            <h3>고객 응대 챗봇</h3>
+            <p>웹사이트, 카카오톡, 네이버 톡톡 등에 연동. 고객 문의를 24시간 자동 응대합니다.</p>
+            <ul>
+              <li>FAQ 자동 응답 (80%+ 자동 처리)</li>
+              <li>상품/서비스 안내</li>
+              <li>예약/주문 접수</li>
+              <li>복잡한 문의 → 담당자 자동 연결</li>
+              <li>대화 이력 저장 및 분석</li>
+            </ul>
+            <div class="type-price">200~300만원 | 2~3주</div>
+          </div>
+          <div class="type-card">
+            <h3>사내 지식 검색 챗봇 (RAG)</h3>
+            <p>사내 문서, 매뉴얼, 가이드를 AI가 학습하고 직원의 질문에 답변합니다.</p>
+            <ul>
+              <li>사내 문서 기반 답변 (RAG 파이프라인)</li>
+              <li>신입 직원 온보딩 가속</li>
+              <li>매뉴얼 검색 시간 90%+ 절감</li>
+              <li>Slack/Teams 연동 가능</li>
+              <li>답변 근거(출처 문서) 표시</li>
+            </ul>
+            <div class="type-price">300~500만원 | 3~4주</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 기술 스택 -->
+      <section class="detail-section fade-up">
+        <h2>기술 스택</h2>
+        <div class="tech-list">
+          <div class="tech-row">
+            <span class="tech-label">AI 모델</span>
+            <span class="tech-value">Claude API, GPT-4o, Ollama (보안 필요 시 로컬)</span>
+          </div>
+          <div class="tech-row">
+            <span class="tech-label">RAG 프레임워크</span>
+            <span class="tech-value">LangChain, LlamaIndex</span>
+          </div>
+          <div class="tech-row">
+            <span class="tech-label">벡터 DB</span>
+            <span class="tech-value">Pinecone, Chroma, pgvector</span>
+          </div>
+          <div class="tech-row">
+            <span class="tech-label">챗봇 플랫폼</span>
+            <span class="tech-value">Dify, Flowise, 커스텀 구축</span>
+          </div>
+          <div class="tech-row">
+            <span class="tech-label">연동 채널</span>
+            <span class="tech-value">웹사이트, 카카오톡, Slack, Teams, 네이버 톡톡</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="detail-cta fade-up">
+        <h2>반복 문의를 AI가 처리하게 하세요</h2>
+        <p>현재 고객 문의 패턴을 분석하고 최적의 챗봇 구축 방법을 안내드립니다.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="/contact" class="btn-primary">챗봇 구축 상담</a>
+          <a href="/services" class="btn-secondary">전체 서비스 보기</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style>
+  .detail-page { padding-top: calc(var(--header-height) + 40px); padding-bottom: 80px; }
+  .detail-hero { padding: 40px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .detail-hero-desc { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; margin-top: 16px; max-width: 640px; }
+  .detail-hero-meta { display: flex; gap: 24px; margin-top: 24px; flex-wrap: wrap; }
+  .meta-item { font-size: 0.9rem; color: var(--text-secondary); padding: 8px 16px; border-radius: 8px; background: var(--surface-alt); }
+  .meta-item strong { color: var(--text); margin-right: 6px; }
+  .detail-section { margin-bottom: 56px; }
+  .detail-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
+  .detail-section > p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+
+  .type-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .type-card { padding: 28px; border-radius: 16px; background: var(--bg-card); border: 1px solid var(--border); }
+  .type-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+  .type-card > p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .type-card ul { list-style: none; padding: 0; margin-bottom: 16px; }
+  .type-card li { font-size: 0.85rem; color: var(--text-secondary); padding: 4px 0 4px 18px; position: relative; line-height: 1.5; }
+  .type-card li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); font-weight: 700; font-size: 0.8rem; }
+  .type-price { font-size: 0.9rem; font-weight: 700; color: var(--primary); padding-top: 12px; border-top: 1px solid var(--border); }
+
+  .tech-list { display: flex; flex-direction: column; gap: 12px; }
+  .tech-row { display: flex; gap: 16px; padding: 14px 20px; border-radius: 10px; background: var(--surface-alt); align-items: baseline; flex-wrap: wrap; }
+  .tech-label { font-size: 0.85rem; font-weight: 700; min-width: 120px; color: var(--text); }
+  .tech-value { font-size: 0.85rem; color: var(--text-secondary); }
+
+  .detail-cta { margin-top: 64px; text-align: center; padding: 64px 32px; border-radius: 20px; background: var(--surface-alt); }
+  .detail-cta h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
+  .detail-cta p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; }
+
+  @media (max-width: 768px) { .type-grid { grid-template-columns: 1fr; } }
+</style>
