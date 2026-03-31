@@ -1,20 +1,20 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --primary: #0D9488;
-  --primary-dark: #0B7E73;
-  --secondary: #06B6D4;
-  --bg: #FAFAF8;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F3F2EE;
-  --border: #E5E3DB;
-  --border-hover: rgba(13,148,136,0.3);
-  --text: #1A1A18;
-  --text-secondary: #5C5B56;
-  --text-muted: #9C9A93;
-  --gradient: linear-gradient(135deg, #0D9488, #06B6D4);
-  --accent-soft: #CCFBF1;
-  --surface-alt: #F3F2EE;
+  --primary: #00D4FF;
+  --primary-dark: #00B8DB;
+  --secondary: #7B61FF;
+  --bg: #0A0A0A;
+  --bg-card: #141414;
+  --bg-card-hover: #1A1A1A;
+  --border: #252525;
+  --border-hover: rgba(0,212,255,0.3);
+  --text: #F0F0F0;
+  --text-secondary: #A0A0A0;
+  --text-muted: #666666;
+  --gradient: linear-gradient(135deg, #00D4FF, #7B61FF);
+  --accent-soft: rgba(0,212,255,0.1);
+  --surface-alt: #111111;
   --max-width: 1200px;
   --header-height: 72px;
 }
@@ -41,12 +41,12 @@ header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   height: var(--header-height);
   display: flex; align-items: center;
-  background: rgba(250,250,248,0.85);
+  background: rgba(10,10,10,0.85);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: background 0.3s;
 }
-header.scrolled { background: rgba(250,250,248,0.95); }
+header.scrolled { background: rgba(10,10,10,0.95); }
 header .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
 .logo {
@@ -122,7 +122,7 @@ nav a:hover { color: var(--text); }
 
 .btn-primary {
   padding: 16px 36px; border-radius: 12px;
-  background: var(--gradient); color: #fff; font-weight: 700;
+  background: var(--gradient); color: #000; font-weight: 700;
   font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 20px rgba(0,212,255,0.2);
 }
@@ -389,7 +389,7 @@ footer p + p { margin-top: 8px; }
 .video-play-btn::after {
   content: ''; width: 0; height: 0;
   border-top: 14px solid transparent; border-bottom: 14px solid transparent;
-  border-left: 22px solid #000; margin-left: 4px;
+  border-left: 22px solid #111; margin-left: 4px;
 }
 .video-placeholder span {
   font-size: 0.9rem; color: var(--text-secondary); font-weight: 500;
@@ -491,7 +491,7 @@ footer p + p { margin-top: 8px; }
 /* ── Mobile Nav ── */
 .mobile-overlay {
   display: none; position: fixed; inset: 0; z-index: 999;
-  background: rgba(250,250,248,0.98); backdrop-filter: blur(20px);
+  background: rgba(10,10,10,0.98); backdrop-filter: blur(20px);
   flex-direction: column; align-items: center; justify-content: center; gap: 32px;
 }
 .mobile-overlay.open { display: flex; }
