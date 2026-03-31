@@ -28,6 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- Slide 1: 업종 -->
     <div class="tf-slide" id="slide1" style="display:none;">
       <div class="tf-slide-inner">
+        <button class="tf-back-btn" onclick="goBack()">← 이전</button>
         <div class="tf-progress"><div class="tf-progress-bar"><div class="tf-progress-fill" style="width:20%"></div></div><span>1/5</span></div>
         <div class="tf-q-num">1 →</div>
         <h2 class="tf-q-text">어떤 사업을 하고 계신가요?</h2>
@@ -39,6 +40,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- Slide 2: 고통 포인트 -->
     <div class="tf-slide" id="slide2" style="display:none;">
       <div class="tf-slide-inner">
+        <button class="tf-back-btn" onclick="goBack()">← 이전</button>
         <div class="tf-progress"><div class="tf-progress-bar"><div class="tf-progress-fill" style="width:40%"></div></div><span>2/5</span></div>
         <div class="tf-q-num">2 →</div>
         <h2 class="tf-q-text">가장 시간을 뺏기는 업무는?</h2>
@@ -52,6 +54,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- Slide 3: 현재 도구 -->
     <div class="tf-slide" id="slide3" style="display:none;">
       <div class="tf-slide-inner">
+        <button class="tf-back-btn" onclick="goBack()">← 이전</button>
         <div class="tf-progress"><div class="tf-progress-bar"><div class="tf-progress-fill" style="width:60%"></div></div><span>3/5</span></div>
         <div class="tf-q-num">3 →</div>
         <h2 class="tf-q-text">현재 업무에 사용 중인 도구는?</h2>
@@ -65,6 +68,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- Slide 4: 규모+긴급도 -->
     <div class="tf-slide" id="slide4" style="display:none;">
       <div class="tf-slide-inner">
+        <button class="tf-back-btn" onclick="goBack()">← 이전</button>
         <div class="tf-progress"><div class="tf-progress-bar"><div class="tf-progress-fill" style="width:80%"></div></div><span>4/5</span></div>
         <div class="tf-q-num">4 →</div>
         <h2 class="tf-q-text">사업 규모와 도입 시기</h2>
@@ -113,6 +117,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       {v:'sns',l:'SNS/마케팅 콘텐츠',h:3},
       {v:'other',l:'기타',h:3}
     ];
+
+    // 용어 툴팁 데이터
+    var glossary = {
+      'n8n': { desc: '여러 앱과 서비스를 연결하는 오픈소스 자동화 도구입니다. 코딩 없이 드래그 앤 드롭으로 자동화를 만들 수 있습니다.', link: '/services/n8n' },
+      'AI 챗봇': { desc: '고객 문의에 AI가 자동으로 답변하는 시스템입니다. 반복되는 질문의 80% 이상을 자동 처리할 수 있습니다.', link: '/services/chatbot' },
+      'API': { desc: '서로 다른 프로그램을 연결하는 통로입니다. 예: Gmail과 스프레드시트를 자동으로 연결하는 데 사용됩니다.', link: null },
+      'MCP': { desc: 'Model Context Protocol. AI(Claude)가 외부 시스템(파일, DB, 구글 드라이브 등)에 접근할 수 있게 해주는 연결 기술입니다.', link: '/services/claude' },
+      'RAG': { desc: '사내 문서를 AI가 검색하고 답변하는 기술입니다. 회사 매뉴얼, FAQ를 AI가 학습해서 직원 질문에 답합니다.', link: '/services/chatbot' },
+      'OpenClaw': { desc: '컴퓨터 화면을 직접 보고 마우스/키보드를 조작하는 오픈소스 AI 에이전트입니다.', link: '/services/openclaw' },
+      'Claude': { desc: 'Anthropic이 만든 AI 모델입니다. 문서 작성, 분석, 코딩 등 다양한 업무에 활용할 수 있습니다.', link: '/services/claude' },
+      'Ollama': { desc: '내 컴퓨터에서 AI를 실행하는 도구입니다. 데이터가 외부로 나가지 않아 보안에 유리합니다.', link: '/services/local-llm' },
+      'Docker': { desc: '프로그램을 독립된 환경(컨테이너)에서 실행하는 기술입니다. 설치 환경 차이로 인한 문제를 방지합니다.', link: null },
+    };
+
+    function tipWrap(term) {
+      var g = glossary[term];
+      if (!g) return term;
+      var linkHtml = g.link ? '<a class="tf-tip-link" href="'+g.link+'">자세히 보기 →</a>' : '';
+      return '<span class="tf-tip">' + term + '<span class="tf-tip-text">' + g.desc + linkHtml + '</span></span>';
+    }
 
     var tools = [
       {v:'excel',l:'엑셀/구글 스프레드시트'},
@@ -184,8 +208,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       tg.querySelectorAll('input:checked').forEach(function(c){ state.tools.push(c.value); });
       document.getElementById('tool-next').disabled = state.tools.length === 0;
       var tips = [];
-      if (state.tools.indexOf('excel')>=0 && state.tools.indexOf('gmail')>=0) tips.push('Gmail + 스프레드시트 조합은 n8n으로 자동화하면 가장 빠릅니다.');
-      if (state.tools.indexOf('notion')>=0) tips.push('Notion은 API가 잘 되어 있어 연동이 수월합니다.');
+      if (state.tools.indexOf('excel')>=0 && state.tools.indexOf('gmail')>=0) tips.push('Gmail + 스프레드시트 조합은 '+tipWrap('n8n')+'으로 자동화하면 가장 빠릅니다.');
+      if (state.tools.indexOf('notion')>=0) tips.push('Notion은 '+tipWrap('API')+'가 잘 되어 있어 연동이 수월합니다.');
       if (state.tools.indexOf('paper')>=0) tips.push('수작업이 많을수록 자동화 효과가 큽니다.');
       document.getElementById('insight3').innerHTML = tips.length ? '<p>'+tips[0]+'</p>' : '';
     });
@@ -227,23 +251,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       setTimeout(function(){ goSlide(5); }, 800);
     }
 
-    // Slide transition
+    // Slide transition — horizontal
     window.goSlide = function(to) {
       var from = document.getElementById('slide' + currentSlide);
       var target = document.getElementById('slide' + to);
-      from.classList.add('slide-out-up');
+      var isBack = to < currentSlide;
+      var outClass = isBack ? 'slide-out-right' : 'slide-out-left';
+      var inClass = isBack ? 'slide-in-left' : 'slide-in-right';
+
+      from.classList.add(outClass);
       setTimeout(function() {
         from.style.display = 'none';
-        from.classList.remove('active','slide-out-up');
+        from.classList.remove('active', outClass);
         target.style.display = '';
-        target.classList.add('slide-in-up');
+        target.classList.add(inClass);
         requestAnimationFrame(function() {
           target.classList.add('active');
-          setTimeout(function(){ target.classList.remove('slide-in-up'); }, 600);
+          setTimeout(function(){ target.classList.remove(inClass); }, 500);
         });
         currentSlide = to;
         if (to === 5) renderResult();
-      }, 400);
+      }, 350);
+    };
+
+    window.goBack = function() {
+      if (currentSlide > 1) goSlide(currentSlide - 1);
+      else if (currentSlide === 1) goSlide(0);
     };
 
     document.addEventListener('keydown', function(e) {
@@ -263,12 +296,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       if (state.tools.indexOf('excel')>=0||state.tools.indexOf('gmail')>=0) fit+=10;
       fit = Math.min(fit,98);
 
+      // AI 체크 결과 불러오기
+      var aiCheck = null;
+      try { aiCheck = JSON.parse(localStorage.getItem('ai_check_result')); } catch(e) {}
+
       var painLabels = state.pains.map(function(p){var o=pains.find(function(x){return x.v===p;});return o?o.l:p;}).join(', ');
       var toolLabels = state.tools.map(function(t){var o=tools.find(function(x){return x.v===t;});return o?o.l:t;}).join(', ');
+
+      var aiCheckRow = '';
+      var aiCheckHidden = '';
+      if (aiCheck) {
+        aiCheckRow = '<div class="tf-diag-row"><span>AI 활용 수준</span><span style="color:var(--primary);font-weight:600;">' + aiCheck.level + ' (' + aiCheck.score + '점)</span></div>';
+        aiCheckHidden = '<input type="hidden" name="ai_level" value="' + aiCheck.level + ' (' + aiCheck.score + '점, A:' + aiCheck.aCount + '/10)">';
+      }
 
       document.getElementById('resultArea').innerHTML =
         '<div class="tf-diag-result">' +
           '<h2 class="tf-diag-title">AI 자동화 진단 결과</h2>' +
+          (aiCheck ? '<div class="tf-ai-check-badge">AI 수준 체크 결과가 반영되었습니다</div>' : '') +
           '<div class="tf-diag-stats">' +
             '<div class="tf-diag-stat"><span class="tf-diag-num">주 '+totalH+'시간+</span><span class="tf-diag-label">예상 절감 시간</span></div>' +
             '<div class="tf-diag-stat"><span class="tf-diag-num">월 ~'+saving+'만원</span><span class="tf-diag-label">비용 절감 효과</span></div>' +
@@ -278,6 +323,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             '<div class="tf-diag-row"><span>업종</span><span>'+state.industryLabel+'</span></div>' +
             '<div class="tf-diag-row"><span>자동화 대상</span><span>'+painLabels+'</span></div>' +
             '<div class="tf-diag-row"><span>현재 도구</span><span>'+toolLabels+'</span></div>' +
+            aiCheckRow +
             '<div class="tf-diag-row"><span>추천 솔루션</span><span style="color:var(--primary);font-weight:700;">'+sol+'</span></div>' +
           '</div>' +
           '<div class="tf-diag-form-box">' +
@@ -296,6 +342,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               '<input type="hidden" name="saving" value="주 '+totalH+'시간, 월 ~'+saving+'만원">' +
               '<input type="hidden" name="fit_score" value="'+fit+'%">' +
               '<input type="hidden" name="solution" value="'+sol+'">' +
+              aiCheckHidden +
               '<input type="checkbox" name="botcheck" style="display:none;">' +
               '<div class="tf-form-row"><input type="text" name="name" placeholder="이름 / 회사명" required></div>' +
               '<div class="tf-form-row"><input type="text" name="contact" placeholder="연락처 (전화번호 또는 이메일)" required></div>' +
@@ -323,16 +370,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 </BaseLayout>
 
-<style>
-  .tf-page { position: fixed; inset: 0; overflow: hidden; background: var(--bg); z-index: 100; }
+<style is:global>
+  .tf-page { position: fixed; top: var(--header-height); left: 0; right: 0; bottom: 0; overflow: hidden; background: #050505; z-index: 50; }
   .tf-slide { position: absolute; inset: 0; display: none; overflow-y: auto; }
   .tf-slide.active { display: flex; }
-  .tf-slide-inner { width: 100%; max-width: 640px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+  .tf-slide-inner { width: 100%; max-width: 720px; margin: 0 auto; padding: 40px 32px 60px; display: flex; flex-direction: column; justify-content: center; min-height: calc(100vh - var(--header-height)); min-height: calc(100dvh - var(--header-height)); }
 
-  .slide-out-up { animation: slideOutUp 0.4s cubic-bezier(0.4,0,0.2,1) forwards; }
-  .slide-in-up { animation: slideInUp 0.5s cubic-bezier(0.0,0,0.2,1) forwards; }
-  @keyframes slideOutUp { from{opacity:1;transform:translateY(0)} to{opacity:0;transform:translateY(-60px)} }
-  @keyframes slideInUp { from{opacity:0;transform:translateY(60px)} to{opacity:1;transform:translateY(0)} }
+  .slide-out-left { animation: slideOutLeft 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+  .slide-in-right { animation: slideInRight 0.4s cubic-bezier(0.0,0,0.2,1) forwards; }
+  .slide-out-right { animation: slideOutRight 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+  .slide-in-left { animation: slideInLeft 0.4s cubic-bezier(0.0,0,0.2,1) forwards; }
+  @keyframes slideOutLeft { from{opacity:1;transform:translateX(0)} to{opacity:0;transform:translateX(-80px)} }
+  @keyframes slideInRight { from{opacity:0;transform:translateX(80px)} to{opacity:1;transform:translateX(0)} }
+  @keyframes slideOutRight { from{opacity:1;transform:translateX(0)} to{opacity:0;transform:translateX(80px)} }
+  @keyframes slideInLeft { from{opacity:0;transform:translateX(-80px)} to{opacity:1;transform:translateX(0)} }
 
   .tf-label { font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.15em; color:var(--primary); margin-bottom:20px; }
   .tf-hero-title { font-family:'Satoshi','Pretendard Variable',sans-serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; line-height:1.2; letter-spacing:-0.03em; margin-bottom:16px; }
@@ -349,42 +400,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .tf-progress-fill { height:100%; background:var(--gradient); border-radius:2px; transition:width 0.5s; }
   .tf-progress span { font-size:0.82rem; color:var(--text-muted); font-weight:600; }
 
-  .tf-q-num { font-size:0.9rem; color:var(--primary); font-weight:600; margin-bottom:12px; }
-  .tf-q-text { font-size:clamp(1.3rem,3vw,1.7rem); font-weight:700; line-height:1.5; margin-bottom:24px; }
-  .tf-q-sub { font-size:0.85rem; color:var(--text-muted); margin-bottom:20px; }
+  .tf-q-num { font-size:1rem; color:var(--primary); font-weight:600; margin-bottom:14px; }
+  .tf-q-text { font-size:clamp(1.5rem,3.5vw,2rem); font-weight:700; line-height:1.5; margin-bottom:28px; }
+  .tf-q-sub { font-size:0.95rem; color:var(--text-muted); margin-bottom:24px; }
 
-  .tf-opt-key { width:32px; height:32px; min-width:32px; border-radius:8px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; color:var(--text-secondary); transition:all 0.25s; flex-shrink:0; }
-  .tf-opt-check { opacity:0; transform:scale(0); color:var(--primary); font-weight:800; font-size:1.1rem; transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); margin-left:auto; flex-shrink:0; }
+  .tf-opt-key { width:40px; height:40px; min-width:40px; border-radius:10px; border:2px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.9rem; color:#ccc; transition:all 0.25s; flex-shrink:0; background:rgba(255,255,255,0.05); }
+  .tf-opt-check { opacity:0; transform:scale(0); color:var(--primary); font-weight:800; font-size:1.3rem; transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1); margin-left:auto; flex-shrink:0; }
 
   /* Grid options (industry) */
-  .tf-grid-options { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-  .tf-grid-opt { display:flex; align-items:center; gap:10px; padding:14px 16px; border-radius:12px; background:var(--bg-card); border:1px solid var(--border); color:var(--text); font-family:inherit; font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.25s cubic-bezier(0.4,0,0.2,1); text-align:left; }
-  .tf-grid-opt:hover { border-color:var(--border-hover); transform:translateY(-2px); }
-  .tf-grid-opt.selected { border-color:var(--primary); background:var(--accent-soft); }
+  .tf-grid-options { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .tf-grid-opt { display:flex; align-items:center; gap:12px; padding:18px 20px; border-radius:14px; background:rgba(255,255,255,0.06); border:2px solid rgba(255,255,255,0.12); color:#F0F0F0; font-family:inherit; font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.25s cubic-bezier(0.4,0,0.2,1); text-align:left; }
+  .tf-grid-opt:hover { border-color:rgba(0,212,255,0.6); background:rgba(255,255,255,0.1); transform:translateY(-3px); }
+  .tf-grid-opt.selected { border-color:#00D4FF; background:rgba(0,212,255,0.15); }
   .tf-grid-opt.selected .tf-opt-key { background:var(--primary); border-color:var(--primary); color:#000; }
   .tf-grid-opt.selected .tf-opt-check { opacity:1; transform:scale(1); }
 
   /* Checkbox options */
-  .tf-check-options { display:flex; flex-direction:column; gap:10px; }
-  .tf-check-opt { display:flex; align-items:center; gap:12px; padding:16px 20px; border-radius:12px; background:var(--bg-card); border:1px solid var(--border); cursor:pointer; transition:all 0.25s; }
-  .tf-check-opt:hover { border-color:var(--border-hover); transform:translateX(4px); }
-  .tf-check-opt:has(input:checked) { border-color:var(--primary); background:var(--accent-soft); }
+  .tf-check-options { display:flex; flex-direction:column; gap:12px; }
+  .tf-check-opt { display:flex; align-items:center; gap:16px; padding:20px 24px; border-radius:14px; background:rgba(255,255,255,0.06); border:2px solid rgba(255,255,255,0.12); cursor:pointer; transition:all 0.25s; color:#F0F0F0; }
+  .tf-check-opt:hover { border-color:rgba(0,212,255,0.6); background:rgba(255,255,255,0.1); transform:translateX(6px); }
+  .tf-check-opt:has(input:checked) { border-color:#00D4FF; background:rgba(0,212,255,0.15); }
   .tf-check-opt:has(input:checked) .tf-opt-key { background:var(--primary); border-color:var(--primary); color:#000; }
   .tf-check-opt:has(input:checked) .tf-opt-check { opacity:1; transform:scale(1); }
   .tf-check-opt input { display:none; }
-  .tf-check-label { flex:1; font-size:0.92rem; }
+  .tf-check-label { flex:1; font-size:1.02rem; }
 
   /* Row options (size) */
-  .tf-row-options { display:flex; gap:10px; flex-wrap:wrap; }
-  .tf-row-opt { padding:12px 24px; border-radius:10px; background:var(--bg-card); border:1px solid var(--border); color:var(--text); font-family:inherit; font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.25s; }
-  .tf-row-opt:hover { border-color:var(--border-hover); }
-  .tf-row-opt.selected { border-color:var(--primary); background:var(--accent-soft); color:var(--primary); }
+  .tf-row-options { display:flex; gap:12px; flex-wrap:wrap; }
+  .tf-row-opt { padding:16px 28px; border-radius:12px; background:rgba(255,255,255,0.06); border:2px solid rgba(255,255,255,0.12); color:#F0F0F0; font-family:inherit; font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.25s; }
+  .tf-row-opt:hover { border-color:rgba(0,212,255,0.6); background:rgba(255,255,255,0.1); }
+  .tf-row-opt.selected { border-color:#00D4FF; background:rgba(0,212,255,0.15); color:#00D4FF; }
 
   /* Column options (urgency) */
-  .tf-col-options { display:flex; flex-direction:column; gap:10px; }
-  .tf-col-opt { display:flex; align-items:center; gap:12px; padding:16px 20px; border-radius:12px; background:var(--bg-card); border:1px solid var(--border); color:var(--text); font-family:inherit; font-size:0.92rem; cursor:pointer; transition:all 0.25s; text-align:left; width:100%; }
-  .tf-col-opt:hover { border-color:var(--border-hover); transform:translateX(4px); }
-  .tf-col-opt.selected { border-color:var(--primary); background:var(--accent-soft); }
+  .tf-col-options { display:flex; flex-direction:column; gap:12px; }
+  .tf-col-opt { display:flex; align-items:center; gap:16px; padding:20px 24px; border-radius:14px; background:rgba(255,255,255,0.06); border:2px solid rgba(255,255,255,0.12); color:#F0F0F0; font-family:inherit; font-size:1.02rem; cursor:pointer; transition:all 0.25s; text-align:left; width:100%; }
+  .tf-col-opt:hover { border-color:rgba(0,212,255,0.6); background:rgba(255,255,255,0.1); transform:translateX(6px); }
+  .tf-col-opt.selected { border-color:#00D4FF; background:rgba(0,212,255,0.15); }
   .tf-col-opt.selected .tf-opt-key { background:var(--primary); border-color:var(--primary); color:#000; }
   .tf-col-opt.selected .tf-opt-check { opacity:1; transform:scale(1); }
 
@@ -392,38 +443,105 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .tf-sub-label { font-size:0.9rem; font-weight:700; margin-bottom:12px; }
 
   .tf-insight { min-height:40px; margin-top:20px; }
-  .tf-insight p { padding:16px 20px; border-radius:10px; background:var(--accent-soft); font-size:0.88rem; color:var(--primary); line-height:1.6; animation: insightIn 0.4s cubic-bezier(0.0,0,0.2,1); }
+  .tf-insight p { padding:20px 24px; border-radius:12px; background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.15); font-size:1rem; color:var(--primary); line-height:1.7; animation: insightIn 0.4s cubic-bezier(0.0,0,0.2,1); }
   .tf-insight strong { font-weight:700; }
   @keyframes insightIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
 
-  .tf-next-btn { display:block; width:100%; padding:16px; border-radius:12px; background:var(--gradient); color:#000; font-weight:700; font-size:1rem; font-family:inherit; border:none; cursor:pointer; transition:opacity 0.2s,transform 0.2s; }
+  .tf-next-btn { display:block; width:100%; padding:18px; border-radius:14px; background:var(--gradient); color:#000; font-weight:700; font-size:1.1rem; font-family:inherit; border:none; cursor:pointer; transition:opacity 0.2s,transform 0.2s; }
   .tf-next-btn:disabled { opacity:0.3; cursor:not-allowed; }
   .tf-next-btn:not(:disabled):hover { transform:translateY(-2px); }
 
   /* Result */
   .tf-diag-result { animation: slideInUp 0.5s; }
-  .tf-diag-title { font-size:1.5rem; font-weight:800; text-align:center; margin-bottom:28px; }
+  .tf-diag-title { font-size:1.8rem; font-weight:800; text-align:center; margin-bottom:28px; }
   .tf-diag-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
-  .tf-diag-stat { text-align:center; padding:20px 12px; border-radius:14px; background:var(--bg-card); border:1px solid var(--border); }
-  .tf-diag-num { display:block; font-size:1.3rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:4px; }
+  .tf-diag-stat { text-align:center; padding:20px 12px; border-radius:14px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); }
+  .tf-diag-num { display:block; font-size:1.5rem; font-weight:800; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:4px; }
   .tf-diag-label { font-size:0.78rem; color:var(--text-muted); }
-  .tf-diag-detail { padding:20px 24px; border-radius:14px; background:var(--bg-card); border:1px solid var(--border); margin-bottom:24px; }
-  .tf-diag-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border); font-size:0.88rem; gap:12px; }
+  .tf-diag-detail { padding:20px 24px; border-radius:14px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); margin-bottom:24px; }
+  .tf-diag-row { display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--border); font-size:0.95rem; gap:12px; }
   .tf-diag-row:last-child { border-bottom:none; }
   .tf-diag-row span:first-child { color:var(--text-muted); min-width:80px; flex-shrink:0; }
   .tf-diag-row span:last-child { color:var(--text-secondary); text-align:right; }
 
-  .tf-diag-form-box { padding:32px 28px; border-radius:16px; background:var(--surface-alt); text-align:center; }
-  .tf-diag-form-box h3 { font-size:1.1rem; font-weight:700; margin-bottom:8px; }
+  .tf-diag-form-box { padding:32px 28px; border-radius:16px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); text-align:center; }
+  .tf-diag-form-box h3 { font-size:1.3rem; font-weight:700; margin-bottom:8px; }
   .tf-diag-form-box > p { font-size:0.88rem; color:var(--text-secondary); margin-bottom:24px; }
   .tf-form-row { margin-bottom:12px; }
-  .tf-form-row input { width:100%; padding:14px 18px; border-radius:12px; border:1px solid var(--border); background:var(--bg-card); color:var(--text); font-family:inherit; font-size:0.95rem; outline:none; transition:border-color 0.2s; }
+  .tf-form-row input { width:100%; padding:16px 20px; border-radius:12px; border:2px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.06); color:#F0F0F0; font-family:inherit; font-size:0.95rem; outline:none; transition:border-color 0.2s; }
   .tf-form-row input::placeholder { color:var(--text-muted); }
-  .tf-form-row input:focus { border-color:var(--primary); }
-  .tf-submit-btn { display:block; width:100%; padding:16px; border-radius:12px; background:var(--gradient); color:#000; font-weight:700; font-size:1rem; font-family:inherit; border:none; cursor:pointer; transition:transform 0.2s; margin-top:4px; }
+  .tf-form-row input:focus { border-color:#00D4FF; background:rgba(255,255,255,0.08); }
+  .tf-submit-btn { display:block; width:100%; padding:18px; border-radius:14px; background:var(--gradient); color:#000; font-weight:700; font-size:1.1rem; font-family:inherit; border:none; cursor:pointer; transition:transform 0.2s; margin-top:4px; }
   .tf-submit-btn:hover { transform:translateY(-2px); }
   .tf-submit-btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
   .tf-form-note { margin-top:12px; font-size:0.78rem; color:var(--text-muted); }
+
+  /* AI Check badge */
+  .tf-ai-check-badge {
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    color: #00D4FF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  /* Tooltip */
+  .tf-tip {
+    position: relative;
+    border-bottom: 1px dashed rgba(0,212,255,0.4);
+    cursor: help;
+    color: var(--primary);
+  }
+  .tf-tip:hover .tf-tip-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .tf-tip-text {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    width: 280px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #ccc;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    font-weight: 400;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+    pointer-events: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .tf-tip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1a1a1a;
+  }
+  .tf-tip-link {
+    display: inline-block;
+    margin-top: 6px;
+    color: #00D4FF;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  /* Back button */
+  .tf-back-btn { display:inline-flex; width:auto !important; align-items:center; gap:4px; padding:8px 16px; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#aaa; font-family:inherit; font-size:0.85rem; cursor:pointer; transition:all 0.2s; margin-bottom:24px; }
+  .tf-back-btn:hover { background:rgba(255,255,255,0.1); color:#fff; border-color:rgba(255,255,255,0.25); }
 
   @media (max-width:600px) {
     .tf-slide-inner { padding:60px 20px; }
