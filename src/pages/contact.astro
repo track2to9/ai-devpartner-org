@@ -2,105 +2,64 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="상담 신청 | 딸깍AI" description="AI 도입 무료 상담을 신청하세요. OpenClaw 설치, Claude 업무 도입, AI 자동화 컨설팅." currentPage="/contact">
+<BaseLayout title="무료 진단 신청 | 딸깍AI" description="AI 업무 자동화 무료 진단을 신청하세요. 30분 상담으로 자동화 가능 영역을 파악합니다." currentPage="/contact">
 
   <div class="contact-page">
     <div class="container" style="max-width:720px;">
 
       <div class="section-header center fade-up">
         <p class="section-label">Contact</p>
-        <h1 class="section-title">무료 상담 신청</h1>
+        <h1 class="section-title">무료 진단 신청</h1>
         <p class="section-desc">
-          아래 양식을 작성해 주시면 빠른 시간 내에 연락드리겠습니다.<br>
-          급한 문의는 우측 하단 채팅을 이용해 주세요.
+          30분 무료 진단으로 자동화 가능 영역과 예상 효과를 파악합니다.<br>
+          아래 양식을 작성해 주시면 영업일 기준 1일 이내 연락드립니다.
         </p>
       </div>
 
-      <!-- Form -->
+      <!-- Form: 4 fields -->
       <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="contact-form fade-up">
-        <!-- TODO: Web3Forms에서 발급받은 access_key로 교체하세요 -->
-        <!-- https://web3forms.com 에서 이메일 입력하면 바로 발급됩니다 -->
-        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-        <input type="hidden" name="subject" value="[딸깍AI] 새로운 상담 신청">
-        <input type="hidden" name="from_name" value="딸깍AI 상담폼">
+        <input type="hidden" name="access_key" value="49321127-3e8c-47dd-a8e1-ecb942599407">
+        <input type="hidden" name="subject" value="[딸깍AI] 무료 진단 신청">
+        <input type="hidden" name="from_name" value="딸깍AI 진단 신청폼">
+        <input type="hidden" name="redirect" value="https://ai.devpartner.org/thank-you">
         <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
 
         <div class="form-group">
           <label for="name">이름 / 회사명 <span class="required">*</span></label>
-          <input type="text" id="name" name="name" placeholder="홍길동 / 홍길동 컴퍼니" required>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="contact">연락처 <span class="required">*</span></label>
-            <input type="text" id="contact" name="contact" placeholder="전화번호, 이메일, 또는 카카오톡 ID" required>
-          </div>
-          <div class="form-group">
-            <label for="contact_method">선호 연락 방법</label>
-            <select id="contact_method" name="contact_method">
-              <option value="">선택해 주세요</option>
-              <option value="phone">전화</option>
-              <option value="email">이메일</option>
-              <option value="kakao">카카오톡</option>
-              <option value="chat">사이트 채팅</option>
-            </select>
-          </div>
+          <input type="text" id="name" name="name" placeholder="예: 홍길동 / 홍길동 무역" required aria-required="true">
         </div>
 
         <div class="form-group">
-          <label for="service">관심 서비스 <span class="required">*</span></label>
-          <select id="service" name="service" required>
-            <option value="">서비스를 선택해 주세요</option>
-            <optgroup label="AI 에이전트 설치">
-              <option value="openclaw">OpenClaw 설치</option>
-              <option value="ollama">로컬 LLM (Ollama) 설치</option>
-              <option value="comfyui">ComfyUI / Stable Diffusion 설치</option>
-            </optgroup>
-            <optgroup label="Claude 업무 도입">
-              <option value="claude-starter">Claude 시작하기</option>
-              <option value="claude-cowork">Claude 업무 도입 (Cowork)</option>
-              <option value="claude-team">팀 AI 도입</option>
-            </optgroup>
-            <optgroup label="AI 개발 도구">
-              <option value="cursor">Cursor / Claude Code 세팅</option>
-              <option value="mcp">MCP 서버 구축</option>
-              <option value="dify">Dify / Flowise 플랫폼</option>
-            </optgroup>
-            <optgroup label="비즈니스 AI">
-              <option value="chatbot">AI 챗봇 / RAG 구축</option>
-              <option value="automation">n8n / Make 자동화</option>
-              <option value="consulting">AI 도입 컨설팅</option>
-            </optgroup>
-            <option value="other">기타 (아래에 설명해 주세요)</option>
+          <label for="contact">연락처 (전화번호 또는 이메일) <span class="required">*</span></label>
+          <input type="text" id="contact" name="contact" placeholder="예: 010-1234-5678 또는 email@example.com" required aria-required="true">
+        </div>
+
+        <div class="form-group">
+          <label for="industry">업종</label>
+          <select id="industry" name="industry" aria-label="업종 선택">
+            <option value="">선택해 주세요 (선택사항)</option>
+            <option value="export">수출/무역</option>
+            <option value="logistics">물류/배송/대행</option>
+            <option value="retail">유통/소매</option>
+            <option value="manufacturing">제조</option>
+            <option value="service">서비스업</option>
+            <option value="other">기타</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="device">사용 기기 / 환경</label>
-          <input type="text" id="device" name="device" placeholder="예: Mac Mini M2, MacBook Pro, Windows PC, 잘 모르겠음 등">
-        </div>
-
-        <div class="form-group">
-          <label for="message">추가 메시지</label>
-          <textarea id="message" name="message" rows="4" placeholder="궁금한 점이나 원하는 서비스에 대해 자유롭게 적어주세요."></textarea>
+          <label for="message">어떤 업무에 AI를 적용하고 싶으세요?</label>
+          <textarea id="message" name="message" rows="3" placeholder="예: 해외 고객 이메일 관리가 너무 시간이 많이 걸립니다. / 알바 급여 계산을 자동화하고 싶습니다." aria-label="문의 내용"></textarea>
         </div>
 
         <button type="submit" class="btn-primary form-submit" id="submitBtn">
-          상담 신청하기
+          무료 진단 신청하기
         </button>
 
         <p class="form-note">
           제출하신 정보는 상담 목적으로만 사용되며, <a href="/privacy">개인정보처리방침</a>에 따라 관리됩니다.
         </p>
       </form>
-
-      <!-- Success -->
-      <div id="successMessage" class="success-message" style="display:none;">
-        <div class="success-icon">✓</div>
-        <h2>상담 신청이 완료되었습니다!</h2>
-        <p>빠른 시간 내에 연락드리겠습니다.<br>급한 문의는 우측 하단 채팅을 이용해 주세요.</p>
-        <a href="/" class="btn-secondary" style="margin-top:24px; display:inline-block;">홈으로 돌아가기</a>
-      </div>
 
       <!-- Contact Info -->
       <div class="contact-info fade-up">
@@ -136,8 +95,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       btn.textContent = '전송 중...';
       btn.disabled = true;
 
-      // Web3Forms handles the submission via standard form POST
-      // On success, show success message
       var form = this;
       e.preventDefault();
 
@@ -148,17 +105,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         return res.json();
       }).then(function(data) {
         if (data.success) {
-          form.style.display = 'none';
-          document.getElementById('successMessage').style.display = 'block';
+          window.location.href = '/thank-you';
         } else {
-          btn.textContent = '상담 신청하기';
+          btn.textContent = '무료 진단 신청하기';
           btn.disabled = false;
-          alert('전송에 실패했습니다. 우측 하단 채팅으로 문의해 주세요.');
+          alert('전송에 실패했습니다. contact@devpartner.org로 직접 문의해 주세요.');
         }
       }).catch(function() {
-        btn.textContent = '상담 신청하기';
+        btn.textContent = '무료 진단 신청하기';
         btn.disabled = false;
-        alert('네트워크 오류가 발생했습니다. 우측 하단 채팅으로 문의해 주세요.');
+        alert('네트워크 오류가 발생했습니다. contact@devpartner.org로 직접 문의해 주세요.');
       });
     });
   </script>
@@ -189,7 +145,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .required {
-    color: #ff4444;
+    color: #DC2626;
   }
 
   .form-group input,
@@ -223,27 +179,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239C9A93' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 16px center;
     padding-right: 40px;
   }
 
-  .form-group select option,
-  .form-group select optgroup {
-    background: #1a1a1a;
-    color: var(--text);
-  }
-
   .form-group textarea {
     resize: vertical;
-    min-height: 100px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    min-height: 80px;
   }
 
   .form-submit {
@@ -271,37 +215,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .form-note a {
     color: var(--primary);
     text-decoration: underline;
-  }
-
-  /* Success */
-  .success-message {
-    text-align: center;
-    padding: 60px 24px;
-  }
-
-  .success-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: #000;
-    font-weight: 800;
-    margin: 0 auto 24px;
-  }
-
-  .success-message h2 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 12px;
-  }
-
-  .success-message p {
-    color: var(--text-secondary);
-    line-height: 1.8;
   }
 
   /* Contact Info */
@@ -340,9 +253,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   @media (max-width: 768px) {
-    .form-row {
-      grid-template-columns: 1fr;
-    }
     .contact-info {
       grid-template-columns: 1fr;
     }
