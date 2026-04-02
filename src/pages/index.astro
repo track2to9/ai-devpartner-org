@@ -295,6 +295,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <a href="/contact" class="btn-outline">상담 신청</a>
         </div>
       </div>
+
+      <!-- 정부지원사업 안내 -->
+      <div class="gov-note fade-up">
+        <div class="gov-note-icon">🏛️</div>
+        <div class="gov-note-content">
+          <h3>정부지원사업 예산으로 의뢰 가능합니다</h3>
+          <p>
+            창업패키지(예비·초기·도약), AI 바우처, 디지털 전환 지원사업 등
+            정부지원사업에 선정되셨다면, 해당 예산으로 AI 자동화 구축을 의뢰하실 수 있습니다.
+            세금계산서 발행 가능. 정산 서류 지원.
+          </p>
+          <a href="/contact" style="color:var(--primary); font-weight:600; font-size:0.9rem;">정부사업 연계 상담 →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -534,6 +548,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.8rem;
     color: var(--primary);
     font-weight: 600;
+  }
+
+  /* Gov note */
+  .gov-note {
+    margin-top: 48px;
+    padding: 28px 32px;
+    border-radius: 16px;
+    background: rgba(0,212,255,0.04);
+    border: 1px solid rgba(0,212,255,0.15);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .gov-note-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .gov-note-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .gov-note-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 10px;
   }
 
   @media (max-width: 968px) {
